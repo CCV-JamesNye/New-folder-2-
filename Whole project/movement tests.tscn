@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://uaygc4fcfhny"]
+
+[ext_resource type="Script" uid="uid://wj46tub15007" path="res://Whole project/scripts/player_character_body.gd" id="2_08spm"]
+[ext_resource type="Texture2D" uid="uid://d32c6jc5wx74x" path="res://icon.svg" id="2_cccky"]
+[ext_resource type="Texture2D" uid="uid://01w02btfl5ls" path="res://Art/Sprites/Dinosaur/DinoSprites - doux.png" id="3_vw6ly"]
+[ext_resource type="Script" uid="uid://c7rbo31k6dlvb" path="res://Whole project/area_2d.gd" id="4_vw6ly"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_08spm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vw6ly"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q1wne"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vw6ly"]
+
+[node name="Node2D" type="Node2D" unique_id=132128524]
+
+[node name="floor" type="StaticBody2D" parent="." unique_id=992850542]
+position = Vector2(598, 514)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor" unique_id=139859712]
+shape = SubResource("WorldBoundaryShape2D_08spm")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1925660113]
+position = Vector2(597, 148)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1311905128]
+shape = SubResource("RectangleShape2D_vw6ly")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=1911851254]
+texture = ExtResource("2_cccky")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1695460579]
+position = Vector2(103, 65)
+collision_layer = 3
+script = ExtResource("2_08spm")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1682462110]
+position = Vector2(0, -12)
+texture = ExtResource("3_vw6ly")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1239403423]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_q1wne")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=61546618]
+position = Vector2(912, 124)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_vw6ly")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1295722014]
+scale = Vector2(2.5030148, -12.939143)
+shape = SubResource("CircleShape2D_vw6ly")

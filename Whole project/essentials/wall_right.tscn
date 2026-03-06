@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dlvdlrvu516wq"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d7h82"]
+
+[node name="wall_right" type="StaticBody2D" unique_id=717147484]
+rotation = 4.712389
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1960152420]
+shape = SubResource("WorldBoundaryShape2D_d7h82")

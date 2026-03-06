@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b8g4edgy4nurt"]
+
+[ext_resource type="Texture2D" uid="uid://8cjroj7ykcg6" path="res://Art/Sprites/Clouds/Clouds 1/orig.png" id="1_pwejo"]
+
+[node name="Sky And Land" type="Sprite2D" unique_id=42356320]
+texture_filter = 2
+
+[node name="Orig" type="Sprite2D" parent="." unique_id=997965653]
+position = Vector2(112, 41)
+texture = ExtResource("1_pwejo")
+
+[node name="winner_text" type="Label" parent="." unique_id=1624050857]
+visible = false
+offset_left = 113.0
+offset_top = 14.0
+offset_right = 191.0
+offset_bottom = 37.0
+text = "WINNER!!! 
+Press space 
+to play again!"
+
+[node name="loser_text" type="Label" parent="." unique_id=2048889720]
+visible = false
+offset_left = 111.0
+offset_top = 8.0
+offset_right = 199.0
+offset_bottom = 83.0
+text = "You Lost 
+Push Space
+to restart"

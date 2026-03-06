@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://diwmc1tqhuik6"]
+
+[ext_resource type="Texture2D" uid="uid://d32c6jc5wx74x" path="res://icon.svg" id="1_603do"]
+[ext_resource type="Script" uid="uid://wj46tub15007" path="res://Whole project/scripts/player_character_body.gd" id="2_ghs55"]
+[ext_resource type="Script" uid="uid://c7rbo31k6dlvb" path="res://Whole project/area_2d.gd" id="4_drfdh"]
+[ext_resource type="Script" uid="uid://dpqwerfo7li02" path="res://Whole project/scripts/kill_box.gd" id="5_ghs55"]
+[ext_resource type="Script" uid="uid://cx6anlj42vg3g" path="res://Whole project/scripts/goal.gd" id="6_75r2x"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_08spm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q1wne"]
+size = Vector2(130, 126)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vw6ly"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75r2x"]
+size = Vector2(976, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_drfdh"]
+size = Vector2(124, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ni5sr"]
+size = Vector2(212, 182)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_niutl"]
+size = Vector2(128, 130)
+
+[node name="Node2D" type="Node2D" unique_id=132128524]
+
+[node name="floor" type="StaticBody2D" parent="." unique_id=992850542]
+position = Vector2(589, 515)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor" unique_id=139859712]
+shape = SubResource("WorldBoundaryShape2D_08spm")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1695460579]
+position = Vector2(103, 65)
+collision_layer = 2
+script = ExtResource("2_ghs55")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1239403423]
+position = Vector2(0, -68)
+shape = SubResource("RectangleShape2D_q1wne")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1494045747]
+position = Vector2(0, -68)
+texture = ExtResource("1_603do")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=61546618]
+position = Vector2(912, 124)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_drfdh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1295722014]
+scale = Vector2(2.5030148, -12.939143)
+shape = SubResource("CircleShape2D_vw6ly")
+
+[node name="Kill Box" type="Area2D" parent="." unique_id=1307217945]
+position = Vector2(504, 511)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("5_ghs55")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kill Box" unique_id=329636179]
+shape = SubResource("RectangleShape2D_75r2x")
+
+[node name="Goal" type="Area2D" parent="." unique_id=417578574]
+position = Vector2(639, 287)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("6_75r2x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal" unique_id=1624175555]
+shape = SubResource("RectangleShape2D_drfdh")
+
+[node name="Goal Island" type="StaticBody2D" parent="." unique_id=2036643746]
+position = Vector2(640, 433)
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Goal Island" unique_id=1977982619]
+scale = Vector2(1.4586467, 1.4308772)
+texture = ExtResource("1_603do")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal Island" unique_id=712693676]
+shape = SubResource("RectangleShape2D_ni5sr")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1989781575]
+position = Vector2(178, 295)
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=1675316242]
+scale = Vector2(2.4444742, 1.8103858)
+texture = ExtResource("1_603do")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=313403461]
+scale = Vector2(2.4444742, 1.8103858)
+shape = SubResource("RectangleShape2D_niutl")

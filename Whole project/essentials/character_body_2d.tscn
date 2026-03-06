@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://edokyqrww6jl"]
+
+[ext_resource type="Script" uid="uid://cnp07rp3aw80b" path="res://Whole project/scripts/animatedchar.gd" id="1_6ttrx"]
+[ext_resource type="Texture2D" uid="uid://01w02btfl5ls" path="res://Art/Sprites/Dinosaur/DinoSprites - doux.png" id="2_g5qxy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2g8ip"]
+size = Vector2(16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7h82"]
+atlas = ExtResource("2_g5qxy")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbuo0"]
+atlas = ExtResource("2_g5qxy")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3uyq"]
+atlas = ExtResource("2_g5qxy")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g8ip"]
+atlas = ExtResource("2_g5qxy")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejjp7"]
+atlas = ExtResource("2_g5qxy")
+region = Rect2(240, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu2rm"]
+atlas = ExtResource("2_g5qxy")
+region = Rect2(264, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pu5f"]
+atlas = ExtResource("2_g5qxy")
+region = Rect2(288, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bervl"]
+atlas = ExtResource("2_g5qxy")
+region = Rect2(312, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ip3ed"]
+atlas = ExtResource("2_g5qxy")
+region = Rect2(336, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3d33"]
+atlas = ExtResource("2_g5qxy")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1260x"]
+atlas = ExtResource("2_g5qxy")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjqh6"]
+atlas = ExtResource("2_g5qxy")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kp51"]
+atlas = ExtResource("2_g5qxy")
+region = Rect2(168, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hiqw"]
+atlas = ExtResource("2_g5qxy")
+region = Rect2(192, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ans0s"]
+atlas = ExtResource("2_g5qxy")
+region = Rect2(216, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ejjp7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7h82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbuo0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3uyq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g8ip")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejjp7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu2rm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0pu5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bervl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ip3ed")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3d33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1260x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjqh6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kp51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hiqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ans0s")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=990086464]
+visible = false
+collision_layer = 2
+script = ExtResource("1_6ttrx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=376204145]
+position = Vector2(1, -9.5)
+shape = SubResource("RectangleShape2D_2g8ip")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1866898329]
+sprite_frames = SubResource("SpriteFrames_ejjp7")
+animation = &"jump"
+autoplay = "idle"
+frame_progress = 0.99451524
