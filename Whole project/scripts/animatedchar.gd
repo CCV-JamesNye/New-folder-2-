@@ -9,12 +9,7 @@ var speed  : float = 150
 @onready var sprite_2d: Sprite2D = $"../Player/Sprite2D"
 @onready var winner_text: Label = $"../Sky And Land/winner_text"
 @onready var loser_text: Label = $"../Sky And Land/loser_text"
-@onready var slime: Area2D = $"../slime"
-@onready var slime_2: Area2D = $"../slime2"
-@onready var slime_3: Area2D = $"../slime3"
 @onready var win_coin: Area2D = $"../win coin"
-@onready var obstacle_2: StaticBody2D = $"../obstacle2"
-@onready var obstacle: StaticBody2D = $"../obstacle"
 @onready var player: CharacterBody2D = $"../Player"
 @onready var sky_and_land: Sprite2D = $"../Sky And Land"
 
@@ -68,12 +63,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func die () -> void:
 	print("Player Died")
 	loser_text.visible = true
-	slime.visible = false
-	slime_2.visible = false
-	slime_3.visible = false
+	
 	win_coin.visible = false
-	obstacle.visible = false
-	obstacle_2.visible = false
 	player.visible = false
 	get_tree().paused = true
 	
@@ -83,11 +74,6 @@ func die () -> void:
 func win() -> void:
 	print("Player Wins")
 	winner_text.visible = true
-	slime.visible = false
-	slime_2.visible = false
-	slime_3.visible = false
 	win_coin.visible = false
-	obstacle.visible = false
-	obstacle_2.visible = false
 	player.visible = false
 	get_tree().paused = true

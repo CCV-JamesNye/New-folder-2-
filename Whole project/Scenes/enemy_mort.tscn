@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://bjde4hvju173w"]
+
+[ext_resource type="Texture2D" uid="uid://c4et83hcehcl" path="res://Art/Sprites/Dinosaur/DinoSprites - mort.png" id="1_kwgl3"]
+[ext_resource type="Script" uid="uid://ddvayx06yh1pw" path="res://Whole project/Scenes/Mort Scripts/enemy_mort.gd" id="1_mn4ea"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mn4ea"]
+size = Vector2(15, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqut5"]
+atlas = ExtResource("1_kwgl3")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7utw5"]
+atlas = ExtResource("1_kwgl3")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w05sp"]
+atlas = ExtResource("1_kwgl3")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmtuy"]
+atlas = ExtResource("1_kwgl3")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12b70"]
+atlas = ExtResource("1_kwgl3")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ii536"]
+atlas = ExtResource("1_kwgl3")
+region = Rect2(120, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qoshh"]
+atlas = ExtResource("1_kwgl3")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ou4t"]
+atlas = ExtResource("1_kwgl3")
+region = Rect2(168, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvmwb"]
+atlas = ExtResource("1_kwgl3")
+region = Rect2(192, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5258"]
+atlas = ExtResource("1_kwgl3")
+region = Rect2(216, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_csibb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqut5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7utw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w05sp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmtuy")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12b70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ii536")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qoshh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ou4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvmwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5258")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 10.0
+}]
+
+[node name="Enemy Mort" type="CharacterBody2D" unique_id=208952436]
+script = ExtResource("1_mn4ea")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1115015643]
+position = Vector2(1.5, -8.5)
+shape = SubResource("RectangleShape2D_mn4ea")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=135114701]
+position = Vector2(0, -9)
+sprite_frames = SubResource("SpriteFrames_csibb")
+animation = &"new_animation"
+autoplay = "Idle"
+frame_progress = 0.40513027
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=795367384]
+position = Vector2(9, 0)
+target_position = Vector2(0, 5)
