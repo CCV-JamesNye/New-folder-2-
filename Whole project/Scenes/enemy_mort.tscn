@@ -85,7 +85,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_m5258")
 }],
 "loop": true,
-"name": &"new_animation",
+"name": &"Walk",
 "speed": 10.0
 }]
 
@@ -99,10 +99,9 @@ shape = SubResource("RectangleShape2D_mn4ea")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=135114701]
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_csibb")
-animation = &"new_animation"
+animation = &"Walk"
 autoplay = "Idle"
-frame_progress = 0.40513027
 
-[node name="RayCast2D" type="RayCast2D" parent="." unique_id=795367384]
+[node name="FloorDetect" type="RayCast2D" parent="." unique_id=795367384]
 position = Vector2(9, 0)
 target_position = Vector2(0, 5)
