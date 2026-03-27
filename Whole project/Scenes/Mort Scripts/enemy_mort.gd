@@ -68,6 +68,7 @@ func handle_chase() -> void:
 	pass
 	
 	
+	
 func _check_for_player ( body : Node2D ) -> void:
 	if body is Player:
 		chase_timer.stop()
