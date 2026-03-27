@@ -89,8 +89,13 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Enemy Mort" type="CharacterBody2D" unique_id=208952436]
+[sub_resource type="CircleShape2D" id="CircleShape2D_mn4ea"]
+radius = 100.0
+
+[node name="Enemy Mort" type="CharacterBody2D" unique_id=208952436 node_paths=PackedStringArray("chase_timer", "idle_timer")]
 script = ExtResource("1_mn4ea")
+chase_timer = NodePath("ChaseTimer")
+idle_timer = NodePath("IdleTimer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1115015643]
 position = Vector2(1.5, -8.5)
@@ -105,3 +110,17 @@ autoplay = "Idle"
 [node name="FloorDetect" type="RayCast2D" parent="." unique_id=795367384]
 position = Vector2(9, 0)
 target_position = Vector2(0, 5)
+
+[node name="PlayerDetector" type="Area2D" parent="." unique_id=744571703]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" unique_id=308076237]
+shape = SubResource("CircleShape2D_mn4ea")
+
+[node name="ChaseTimer" type="Timer" parent="." unique_id=187285999]
+wait_time = 2.0
+one_shot = true
+
+[node name="IdleTimer" type="Timer" parent="." unique_id=828120948]
+one_shot = true
