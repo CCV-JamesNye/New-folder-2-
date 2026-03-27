@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@export var patrol_speed : float = 50.0
+@export var patrol_speed : float = 30.0
 @export var gravity : float = 980.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var floor_detect: RayCast2D = $FloorDetect
@@ -21,7 +21,8 @@ func _ready() -> void:
 	player_detector.body_entered.connect( _check_for_player)
 	player_detector.body_exited.connect( _player_left )
 	chase_timer.timeout.connect( _stop_chasing )
-	
+	idle_timer.timeout.connect( _start_patrol )
+	idle_timer.start()
 	
 	
 func _physics_process(delta: float) -> void:
@@ -51,8 +52,6 @@ func _physics_process(delta: float) -> void:
 		
 
 func handle_idle() -> void:
-	idle_timer.start()
-	idle_timer.timeout.connect( _start_patrol )
 	velocity.x=0
 	animated_sprite_2d.play("Idle")
 	pass
@@ -65,7 +64,7 @@ func handle_patrol() -> void:
 
 func handle_chase() -> void:
 	animated_sprite_2d.play("Walk")
-	velocity.x=direction.x*(patrol_speed*2)	
+	velocity.x=direction.x*(patrol_speed*3)
 	pass
 	
 	
@@ -82,7 +81,7 @@ func _player_left ( body : Node2D ) -> void:
 		
 func _stop_chasing () -> void:
 	current_state = STATE.IDLE
-	
+	idle_timer.start()
 	
 func _start_patrol () -> void:
 	current_state = STATE.PATROL
