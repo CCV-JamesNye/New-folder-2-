@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c4et83hcehcl" path="res://Art/Sprites/Dinosaur/DinoSprites - mort.png" id="1_kwgl3"]
 [ext_resource type="Script" uid="uid://ddvayx06yh1pw" path="res://Whole project/Scenes/Mort Scripts/enemy_mort.gd" id="1_mn4ea"]
+[ext_resource type="Script" uid="uid://blfw5ag37qvt8" path="res://Whole project/Scenes/Hitbox Script/hit_box.gd" id="3_yqut5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mn4ea"]
 size = Vector2(15, 17)
@@ -92,6 +93,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_mn4ea"]
 radius = 100.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqut5"]
+size = Vector2(8, 12)
+
 [node name="Enemy Mort" type="CharacterBody2D" unique_id=208952436 node_paths=PackedStringArray("chase_timer", "idle_timer")]
 script = ExtResource("1_mn4ea")
 chase_timer = NodePath("ChaseTimer")
@@ -124,3 +128,13 @@ one_shot = true
 
 [node name="IdleTimer" type="Timer" parent="." unique_id=828120948]
 one_shot = true
+
+[node name="HitBox" type="Area2D" parent="." unique_id=2037495452]
+collision_layer = 4
+monitoring = false
+script = ExtResource("3_yqut5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1854851326]
+position = Vector2(2, -9)
+shape = SubResource("RectangleShape2D_yqut5")
+debug_color = Color(0.81834203, 0.35783523, 0.5030467, 0.41960785)

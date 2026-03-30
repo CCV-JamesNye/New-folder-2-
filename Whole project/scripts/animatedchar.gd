@@ -1,5 +1,11 @@
 class_name Player extends CharacterBody2D
 
+
+
+signal health_update (int)
+
+
+
 var speed  : float = 150
 
 
@@ -13,11 +19,25 @@ var speed  : float = 150
 @onready var win_coin: Area2D = $"../win coin"
 @onready var player: CharacterBody2D = $"../Player"
 @onready var sky_and_land: Sprite2D = $"../Sky And Land"
+@onready var hurt_box: Area2D = $HurtBox
+
+
+var health : int = 3
+var max_health : int = 3 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	hurt_box.take_damage.connect ( _take_damage )
 	pass # Replace with function body.
+
+func _take_damage ( damage : int) -> void:
+	health -= damage
+	printerr (health)
+	health_update.emit( health )
+	if health <= 0:
+		die()
+		
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

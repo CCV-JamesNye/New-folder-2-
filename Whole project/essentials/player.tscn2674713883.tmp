@@ -87,30 +87,14 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gqjl"]
 size = Vector2(8, 13)
 
-[sub_resource type="GDScript" id="GDScript_hdupu"]
-script/source = "extends CanvasLayer
-@export var player: Player
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	
-	player.health_update.connect ( _update_bar )
-	pass # Replace with function body.
-
-
-func _update_bar (health : int ) -> void:
-	value = health
-	
-"
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdupu"]
 bg_color = Color(0.76089174, 0.1850928, 0, 1)
 
-[node name="Player" type="CharacterBody2D" unique_id=1119032007]
+[node name="Player" type="CharacterBody2D" unique_id=1119032007 node_paths=PackedStringArray("hurt_box")]
 process_mode = 3
 collision_layer = 2
 script = ExtResource("1_jb12c")
+hurt_box = NodePath("HurtBox")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1370721767]
 position = Vector2(-0.5, -9.5)
@@ -135,9 +119,7 @@ position = Vector2(-1, -9.5)
 shape = SubResource("RectangleShape2D_3gqjl")
 debug_color = Color(0.86422265, 0.333918, 0.34758982, 0.41960785)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1045388066 node_paths=PackedStringArray("player")]
-script = SubResource("GDScript_hdupu")
-player = NodePath("..")
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1045388066]
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=189347139]
 offset_left = 36.0
